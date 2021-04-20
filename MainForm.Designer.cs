@@ -272,7 +272,7 @@
             this.clearButton.TabIndex = 12;
             this.clearButton.Text = "Reset";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.button1_Click);
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // MainForm
             // 

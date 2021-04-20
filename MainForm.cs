@@ -47,6 +47,21 @@ namespace BMIForms
             if (ReadInputBMI()) DisplayResults();
         }
 
+        //validatoins
+        private bool ReadInputBMI() => ReadName() && ReadHeight() && ReadWeight();
+
+        private void DisplayResults()
+        {
+
+            lblBMIOutput.Text = bmiCalculator.CalculateBMI().ToString("f2");
+            lblWeightCategoryOutput.Text = bmiCalculator.BMIWeightCategory().ToString();
+            lblBMIMessageOutput.Text = bmiCalculator.normalBMIMessage;
+            grpResults.Text = "Name : " + employee.Name;
+            lblNormalWeightDisplay.Text = bmiCalculator.GetMessage();
+        }
+
+
+
         private void rdbMetricUnitInput_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbMetricUnitInput.Checked)
@@ -84,12 +99,12 @@ namespace BMIForms
             double inchesConverted = 0;
 
 
-            bool ok = double.TryParse(txtHeightInput.Text.Trim(), out height);
-            bool ok2 = double.TryParse(txtHeightInches.Text.Trim(), out inches);
+            bool check1 = double.TryParse(txtHeightInput.Text.Trim(), out height);
+            bool check2 = double.TryParse(txtHeightInches.Text.Trim(), out inches);
 
             if (bmiCalculator.Type == UnitTypes.American)
             {
-                if (ok2 && (inches >= 0))
+                if (check2 && (inches >= 0))
                 {
                     inchesConverted = inches / 12;
                 }
@@ -101,7 +116,7 @@ namespace BMIForms
             }
 
 
-            if (ok && (height > 0))
+            if (check1 && (height > 0))
             {
 
                 if (bmiCalculator.Type == UnitTypes.American)
@@ -120,13 +135,9 @@ namespace BMIForms
                 return false;
             }
 
-            return ok;
+            return check1;
         }
-        private bool ReadInputBMI()
-        {
-            ReadName();
-            return ReadHeight() && ReadWeight();
-        }
+
 
         private bool ReadName()
         {
@@ -162,20 +173,9 @@ namespace BMIForms
         }
 
 
-        private void DisplayResults()
-        {
-
-            lblBMIOutput.Text = bmiCalculator.CalculateBMI().ToString("f2");
-            lblWeightCategoryOutput.Text = bmiCalculator.BMIWeightCategory().ToString();
-            lblBMIMessageOutput.Text = bmiCalculator.normalBMIMessage;
-            grpResults.Text = "Results for " + employee.Name;
-            lblNormalWeightDisplay.Text = bmiCalculator.GetMessage();
-
-        }
 
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void clearButton_Click(object sender, EventArgs e)
         {
             InitializeGUI();
         }

@@ -2,20 +2,20 @@
 {
     class AmericanCalculator : BMICalculator
     {
-        private Employee Calculator;
+        private Employee employee;
 
-        public AmericanCalculator(Employee calculator)
+        public AmericanCalculator(Employee employee)
         {
-            this.Calculator = calculator;
+            this.employee = employee;
             Type = UnitTypes.American;
             unit = "lbs";
         }
         public override double CalculateBMI() =>
-        BMI = 703.0 * Calculator.Weight / (Calculator.Height * Calculator.Height);
+        BMI = 703.0 * employee.Weight / (employee.Height * employee.Height);
 
 
         public override double CalculateWeight(double bmi) =>
-        bmi * (Calculator.Height * Calculator.Height) / 703.0;
+        bmi * (employee.Height * employee.Height) / 703.0;
 
     }
 }

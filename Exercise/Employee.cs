@@ -1,4 +1,4 @@
-﻿namespace BMIForms
+﻿namespace BMIForms.Exercise
 {
 
     class Employee

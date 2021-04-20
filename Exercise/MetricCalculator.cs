@@ -2,21 +2,21 @@
 {
     class MetricCalculator : BMICalculator
     {
-        private Employee Calculator;
+        private Employee employee;
 
-        public MetricCalculator(Employee calculator)
+        public MetricCalculator(Employee employee)
         {
-            this.Calculator = calculator;
+            this.employee = employee;
             Type = UnitTypes.Metric;
             unit = "kg";
         }
 
         public override double CalculateBMI() =>
-        BMI = Calculator.Weight / (Calculator.Height * Calculator.Height);
+        BMI = employee.Weight / (employee.Height * employee.Height);
 
 
         public override double CalculateWeight(double bmi) =>
-        bmi * (Calculator.Height * Calculator.Height);
+        bmi * (employee.Height * employee.Height);
     }
 }
 
