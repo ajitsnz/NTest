@@ -167,7 +167,7 @@
             this.grpResults.Margin = new System.Windows.Forms.Padding(1);
             this.grpResults.Name = "grpResults";
             this.grpResults.Padding = new System.Windows.Forms.Padding(1);
-            this.grpResults.Size = new System.Drawing.Size(441, 226);
+            this.grpResults.Size = new System.Drawing.Size(445, 223);
             this.grpResults.TabIndex = 8;
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Results for";
@@ -176,7 +176,7 @@
             // 
             this.lblNormalWeightDisplay.AutoSize = true;
             this.lblNormalWeightDisplay.ForeColor = System.Drawing.Color.Green;
-            this.lblNormalWeightDisplay.Location = new System.Drawing.Point(25, 125);
+            this.lblNormalWeightDisplay.Location = new System.Drawing.Point(10, 125);
             this.lblNormalWeightDisplay.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblNormalWeightDisplay.Name = "lblNormalWeightDisplay";
             this.lblNormalWeightDisplay.Size = new System.Drawing.Size(150, 15);
@@ -186,7 +186,7 @@
             // lblBMIMessageOutput
             // 
             this.lblBMIMessageOutput.AutoSize = true;
-            this.lblBMIMessageOutput.Location = new System.Drawing.Point(25, 96);
+            this.lblBMIMessageOutput.Location = new System.Drawing.Point(8, 96);
             this.lblBMIMessageOutput.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblBMIMessageOutput.Name = "lblBMIMessageOutput";
             this.lblBMIMessageOutput.Size = new System.Drawing.Size(207, 15);
@@ -229,7 +229,7 @@
             // lblYourBMI
             // 
             this.lblYourBMI.AutoSize = true;
-            this.lblYourBMI.Location = new System.Drawing.Point(39, 39);
+            this.lblYourBMI.Location = new System.Drawing.Point(36, 39);
             this.lblYourBMI.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblYourBMI.Name = "lblYourBMI";
             this.lblYourBMI.Size = new System.Drawing.Size(69, 15);

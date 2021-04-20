@@ -47,7 +47,7 @@ namespace BMIForms
             if (ReadInputBMI()) DisplayResults();
         }
 
-        //validatoins
+        //validations
         private bool ReadInputBMI() => ReadName() && ReadHeight() && ReadWeight();
 
         private void DisplayResults()
@@ -99,12 +99,12 @@ namespace BMIForms
             double inchesConverted = 0;
 
 
-            bool check1 = double.TryParse(txtHeightInput.Text.Trim(), out height);
-            bool check2 = double.TryParse(txtHeightInches.Text.Trim(), out inches);
+            bool heightFtCheck = double.TryParse(txtHeightInput.Text.Trim(), out height);
+            bool heightInchCheck = double.TryParse(txtHeightInches.Text.Trim(), out inches);
 
             if (bmiCalculator.Type == UnitTypes.American)
             {
-                if (check2 && (inches >= 0))
+                if (heightInchCheck && (inches >= 0))
                 {
                     inchesConverted = inches / 12;
                 }
@@ -116,7 +116,7 @@ namespace BMIForms
             }
 
 
-            if (check1 && (height > 0))
+            if (heightFtCheck && (height > 0))
             {
 
                 if (bmiCalculator.Type == UnitTypes.American)
@@ -135,7 +135,7 @@ namespace BMIForms
                 return false;
             }
 
-            return check1;
+            return heightFtCheck;
         }
 
 
@@ -146,20 +146,16 @@ namespace BMIForms
                 MessageBox.Show("Please enter your name!", "Error!");
                 return false;
             }
-            else
-            {
-                employee.Name = txtYourNameInput.Text.Trim();
-            }
+            employee.Name = txtYourNameInput.Text.Trim();
             return true;
         }
         private bool ReadWeight()
         {
-
             double outValue = 0;
 
-            bool flag = double.TryParse(txtWeightInput.Text.Trim(), out outValue);
+            bool weightCheck = double.TryParse(txtWeightInput.Text.Trim(), out outValue);
 
-            if (flag && (outValue > 0))
+            if (weightCheck && (outValue > 0))
             {
                 employee.Weight = outValue;
             }
@@ -169,10 +165,8 @@ namespace BMIForms
                 return false;
             }
 
-            return flag;
+            return weightCheck;
         }
-
-
 
 
         private void clearButton_Click(object sender, EventArgs e)
