@@ -93,45 +93,33 @@ namespace BMIForms
 
         private bool ReadHeight()
         {
-
             double height = 0;
             double inches = 0;
-            double inchesConverted = 0;
-
 
             bool heightFtCheck = double.TryParse(txtHeightInput.Text.Trim(), out height);
             bool heightInchCheck = double.TryParse(txtHeightInches.Text.Trim(), out inches);
 
-            if (bmiCalculator.Type == UnitTypes.American)
+
+            if (bmiCalculator.Type.Equals(UnitTypes.American))
             {
                 if (heightInchCheck && (inches >= 0))
                 {
-                    inchesConverted = inches / 12;
+                    employee.HeightInInches = inches;
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Height value (inches)!", "Error!");
+                    MessageBox.Show("Enter valid Height value (inches)!", "Error!");
                     return false;
                 }
             }
 
-
             if (heightFtCheck && (height > 0))
             {
-
-                if (bmiCalculator.Type == UnitTypes.American)
-                {
-
-                    employee.Height = (height + inchesConverted) * 12.00;
-                }
-                else
-                {
-                    employee.Height = height / 100.0;
-                }
+                    employee.Height = height;
             }
             else
             {
-                MessageBox.Show("Enter Height !", "Error!");
+                MessageBox.Show("Enter valid Enter Height !", "Error!");
                 return false;
             }
 
@@ -161,7 +149,7 @@ namespace BMIForms
             }
             else
             {
-                MessageBox.Show("Enter Weight !", "Error!");
+                MessageBox.Show("Enter valid Weight !", "Error!");
                 return false;
             }
 

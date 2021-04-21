@@ -2,6 +2,7 @@
 {
     public abstract class BMICalculator
     {
+
         public abstract double CalculateBMI();
         public abstract double CalculateWeight(double bmi);
 

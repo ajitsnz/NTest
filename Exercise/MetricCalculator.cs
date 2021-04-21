@@ -1,6 +1,6 @@
 ﻿namespace BMIForms.Exercise
 {
-    class MetricCalculator : BMICalculator
+    public class MetricCalculator : BMICalculator
     {
         private Employee employee;
 
@@ -11,9 +11,11 @@
             unit = "kg";
         }
 
-        public override double CalculateBMI() =>
-        BMI = employee.Weight / (employee.Height * employee.Height);
-
+        public override double CalculateBMI()
+        {
+            employee.Height = employee.Height / 100;
+            return BMI = employee.Weight / (employee.Height * employee.Height);
+        }
 
         public override double CalculateWeight(double bmi) =>
         bmi * (employee.Height * employee.Height);
