@@ -1,7 +1,5 @@
 ﻿using BMIForms.Exercise;
 using NUnit.Framework;
-using BMIForms.Exercise;
-using NUnit.Framework.Interfaces;
 
 namespace BMIForms.Test
 {
