@@ -20,7 +20,7 @@ namespace BMIForms.Test
             emp.Height = height;
             emp.HeightInInches = hinches;
             emp.Weight = weight;
-            BMICalculator calculator = new AmericanCalculator(emp);
+            BMICalculator calculator = MetricCalculator.GetInstance(emp);
 
             string bmi = calculator.CalculateBMI().ToString("f2");
             calculator.CalculateWeight(calculator.BMI);
@@ -43,7 +43,7 @@ namespace BMIForms.Test
             emp.Name = "Test";
             emp.Height = height;
             emp.Weight = weight;
-            BMICalculator calculator = new MetricCalculator(emp);
+            BMICalculator calculator = MetricCalculator.GetInstance(emp);
 
             string bmi = calculator.CalculateBMI().ToString("f2");
             calculator.CalculateWeight(calculator.BMI);

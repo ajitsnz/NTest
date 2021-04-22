@@ -2,11 +2,12 @@
 {
     public class MetricCalculator : BMICalculator
     {
-        private Employee employee;
+        private static Employee employee;
+        private static MetricCalculator instance;
 
-        public MetricCalculator(Employee employee)
-        {
-            this.employee = employee;
+        private MetricCalculator(Employee _employee)
+        {  
+            employee = _employee;
             Type = UnitTypes.Metric;
             unit = "kg";
         }
@@ -19,6 +20,13 @@
 
         public override double CalculateWeight(double bmi) =>
         bmi * (employee.Height * employee.Height);
+
+        public static MetricCalculator GetInstance(Employee employee)
+        {
+             if (instance == null) instance = new MetricCalculator(employee);
+             return instance;
+          
+        }
     }
 }
 

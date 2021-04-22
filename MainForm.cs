@@ -8,7 +8,7 @@ namespace BMIForms
     public partial class MainForm : Form
     {
         private Employee employee = new Employee();
-        BMICalculator bmiCalculator;
+        BMICalculator bmiCalculator ;
 
         public MainForm()
         {
@@ -23,7 +23,7 @@ namespace BMIForms
             this.Text = "The Body Mass Calculator";
 
             rdbUSUnitInput.Checked = true;
-            bmiCalculator = new AmericanCalculator(employee);
+            bmiCalculator = AmericanCalculator.GetInstance(employee);
 
             rdbMetricUnitInput.Checked = false;
             lblHeight.Text = "Height (ft)";
@@ -69,7 +69,7 @@ namespace BMIForms
                 lblHeight.Text = "Height (cm)";
                 lblWeight.Text = "Weight (kg)";
 
-                bmiCalculator = new MetricCalculator(employee);
+                bmiCalculator = MetricCalculator.GetInstance(employee);
                 lblHeightFt.Visible = false;
                 lblHeightIn.Visible = false;
                 txtHeightInches.Visible = false;
@@ -82,7 +82,7 @@ namespace BMIForms
                 lblHeight.Text = "Height (ft)";
                 lblWeight.Text = "Weight (lbs)";
 
-                bmiCalculator = new AmericanCalculator(employee);
+                bmiCalculator = AmericanCalculator.GetInstance(employee);
 
                 lblHeightFt.Visible = true;
                 lblHeightIn.Visible = true;
