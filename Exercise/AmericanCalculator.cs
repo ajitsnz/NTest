@@ -3,8 +3,6 @@
     public class AmericanCalculator : BMICalculator
     {
         private static Employee employee;
-
-        private BMICalculator calculator;
         private static AmericanCalculator instance;
 
         private AmericanCalculator(Employee _employee)
